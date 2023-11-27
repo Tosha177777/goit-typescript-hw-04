@@ -7,19 +7,13 @@ type Props = {
   onContentEndVisible: () => void;
 };
 
-type OptionsType = {
-  rootMargin: string;
-  threshold: number;
-  root: null;
-};
-
 export function Observer({ children, onContentEndVisible }: Props) {
   // Вкажіть правильний тип для useRef зверніть увагу, в який DOM елемент ми його передаємо
   const endContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // Вкажіть правильний тип для options, підказка, клас також можна вказувати як тип
-    const options: OptionsType = {
+    const options: IntersectionObserverInit = {
       rootMargin: "0px",
       threshold: 1.0,
       root: null,
